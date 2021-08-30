@@ -10,7 +10,7 @@ def convert_to_yaml(filename: str):
     else:
         yaml_filename = filename[:-4] + 'yml'
         with open(filename, 'r') as f:
-            yaml_data = yaml.dump(json.load(f))
+            yaml_data = yaml.safe_dump(json.load(f), allow_unicode=True)
             with open(yaml_filename, 'w') as g:
                 g.write(yaml_data)
 
